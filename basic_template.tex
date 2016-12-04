@@ -5,64 +5,67 @@
 
 %%%%%%%%%%%%%%% PRE-AMBLE %%%%%%%%%%%%%%%
 
-%%% PAGE PROPERTIES
-\documentclass[11pt]{article} % use larger type; default would be 10pt
-\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-\usepackage{geometry} % to change the page dimensions
-\geometry{letterpaper} % or letterpaper (US) or a5paper or....
-\geometry{margin=1in} % for example, change the margins to 2 inches all round
-% \geometry{landscape} % set up the page for landscape
-%\linespread{1.5} %Changes the line spacing
-%\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+%%% IMPORTS %%%
+\documentclass[11pt]{article} %      		\documentclass[font-sz]{doc-type}
 
-%%% PACKAGES
-\usepackage{mathtools} % Better math!!!
-\usepackage{amsfonts} % Math BB, and more!!
-\usepackage{graphicx} % support the \includegraphics command and options
-\usepackage{booktabs} % for much better looking tables
-\usepackage{array} % for better arrays (eg matrices) in maths
-\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
-\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
-\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-\usepackage[english]{babel} % Prepares for multilingual documents
-\usepackage{blindtext} % Create dummy text with \blindtext
-\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} % Colors!
-\usepackage{lastpage} % Reference the final page
-\usepackage{changepage}  % Allows blocks of indented text
-\usepackage{epstopdf} % Allows .eps images with \includegraphics
-\usepackage[hidelinks, % Prevents boxes around URLs
-	pdfauthor={\TheAuthor}, % Embeds Author and Title in the PDF metadata
-	pdftitle={\TheTitle}]{hyperref} % Allows URL links in the document
-\usepackage{listings}
+\usepackage{inputenc} %	Input encoding                http://bit.ly/latex-inputenc
+\usepackage{geometry} % Document settings             http://bit.ly/latex-geometry
+\usepackage{mathtools} % Fonts & matrices             http://bit.ly/latex-mathtools
+\usepackage{graphicx} % Pictures                      http://bit.ly/latex-graphics
+\usepackage{booktabs} % Nicer looking tables          http://bit.ly/latex-booktabs
+\usepackage{paralist} % Numbered, custom lists        http://bit.ly/latex-paralist
+\usepackage{listings} % Quoting source code           http://bit.ly/latex-listings
+\usepackage{subfig} % Advanced figure placement       http://bit.ly/latex-subfig
+\usepackage[english]{babel} % Multilingual support             http://bit.ly/latex-babel
+\usepackage{blindtext} % Dummy text                   http://bit.ly/latex-blindtext
+\usepackage{xcolor} % Advanced colors                 http://bit.ly/label-xcolor
+\usepackage{lastpage} % Refer to final page of doc    http://bit.ly/latex-lastpage
+\usepackage{changepage}  % Page specific formatting   http://bit.ly/latex-changepage
+\usepackage{epstopdf} % Support for .eps images       http://bit.ly/latex-epstopdf
+\usepackage{hyperref} % Links and metadata            http://bit.ly/latex-hyperref
+\usepackage{parskip} % Change paragraph indents       http://bit.ly/latex-parskip
+\usepackage{fancyhdr} % Header and footer control     http://bit.ly/latex-fancyhdr
 
-%%% HEADERS & FOOTERS
-\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
-\pagestyle{fancy} % options: empty , plain , fancy
-\renewcommand{\headrulewidth}{0.5pt} % If non-zero, there's a line between the header and body.
-\lhead{}\chead{\emph{\TheTitle}}\rhead{\TheAuthor}
-\renewcommand{\footrulewidth}{0.5pt} % If non-zero, there's a line between the footer and body.
-\lfoot{}\cfoot{}\rfoot{\textsc{Page \thepage{} of \pageref{LastPage}}}
-\pagenumbering{arabic} % Remove Page Numbers and reset \thepage to 1. Options: gobble, roman, alph.
+%%% DOCUMENT SETTINGS %%%
+\selectlanguage{english}
+\geometry{letterpaper} % {letterpaper}, {a5paper}, ...
+\geometry{margin=1.15in} % {1in}, {15px}, {2.8pc}, {5pt} etc.
+\geometry{portrait} % {portrait, landscape}
+\setlength{\parskip}{2pc}
+\setlength{\parindent}{2pc}
+\hypersetup{hidelinks=true,pdfauthor={\TheAuthor},pdftitle={\TheTitle}}
+\pagenumbering{arabic} % {gobble}, {arabic}, {roman}, {alph}. Call again to reset
+\pagestyle{fancy} % {empty}, {plain}, {fancy}
 
-%%% SET PATHS
-\makeatletter
-%\graphicspath{{...}{...}}
-%\def\input@path{{...}{...}}
-\makeatother
-\input{generic_macros} % in other git repo
+% Header
+\lhead{}
+\chead{\emph{\TheTitle}}
+\rhead{\TheAuthor}
+\renewcommand{\headrulewidth}{0.5pt} % Line between the header and body.
+% Footer
+\renewcommand{\footrulewidth}{0.5pt} % Line between the footer and body.
+\lfoot{}
+\cfoot{}
+\rfoot{\textsc{Page \thepage{} of \pageref{LastPage}}}
 
 %%%%%%%%%%%%%%%     BODY     %%%%%%%%%%%%%%%
 \begin{document}
+
+% Omit headers/footers on title page
 \thispagestyle{empty}
+
 \centerline{\LARGE{\TheTitle}}
 \centerline{\large{\textbf{\TheSubtitle}}}
-\vspace{1pc}
-%\centerline{\large{\TheAuthor}}
 \vspace{2pc}
+\centerline{\large{\TheAuthor}}
+\centerline{\large{\today}}
+\vspace{20pc}
 
-%\newpage
-%\tableofcontents %Generates a TOC that outlines sections and subsections.
+% Abstract
+\blindtext[1]
+\newpage
 
-\blindtext
+\pagenumbering{arabic}
+\Blinddocument
 
 \end{document}
